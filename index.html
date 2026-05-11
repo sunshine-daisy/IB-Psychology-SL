@@ -16,7 +16,7 @@
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{height:100%}
-body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;height:100%;overflow:hidden}
+body{background:var(--bg);color:var(--text);font-family:\'DM Sans\',sans-serif;height:100%;overflow:hidden}
 *{scrollbar-width:thin;scrollbar-color:var(--border) transparent}
 *::-webkit-scrollbar{width:5px}*::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px}
 body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
@@ -26,7 +26,7 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
 
 /* ── HEADER ── */
 header{text-align:center;margin-bottom:20px}
-header h1{font-family:'Fraunces',serif;font-size:clamp(1.5rem,3.5vw,2.1rem);font-weight:900;line-height:1;
+header h1{font-family:\'Fraunces\',serif;font-size:clamp(1.5rem,3.5vw,2.1rem);font-weight:900;line-height:1;
   background:linear-gradient(135deg,var(--accent) 0%,var(--accent3) 100%);
   -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:5px}
 header p{color:var(--text-muted);font-size:.83rem;letter-spacing:.04em}
@@ -34,7 +34,7 @@ header p{color:var(--text-muted);font-size:.83rem;letter-spacing:.04em}
 /* ── TABS ── */
 .tab-row{display:flex;gap:2px;margin-bottom:20px;background:var(--surface);border-radius:50px;padding:4px;box-shadow:var(--shadow)}
 .tab-btn{flex:1;background:none;border:none;border-radius:50px;padding:9px 14px;
-  color:var(--text-muted);cursor:pointer;font-family:'DM Sans',sans-serif;font-size:.88rem;font-weight:500;
+  color:var(--text-muted);cursor:pointer;font-family:\'DM Sans\',sans-serif;font-size:.88rem;font-weight:500;
   transition:all .2s;white-space:nowrap;text-align:center}
 .tab-btn:hover{color:var(--text)}.tab-btn.active{background:var(--accent);color:#fff;font-weight:600;box-shadow:0 2px 8px rgba(91,79,207,.3)}
 .panel{display:none}.panel.visible{display:block}
@@ -60,7 +60,7 @@ header p{color:var(--text-muted);font-size:.83rem;letter-spacing:.04em}
 .topic-card.tall:hover,.topic-card.tall.sel{border-color:var(--accent);background:rgba(91,79,207,.04)}
 .tc-icon{font-size:1.6rem;margin-bottom:8px}
 .tc-num{font-size:.72rem;font-family:'DM Mono',monospace;color:var(--text-muted);letter-spacing:.1em;text-transform:uppercase;margin-bottom:2px}
-.tc-name{font-family:'Fraunces',serif;font-size:1.05rem;font-weight:700;margin-bottom:4px}
+.tc-name{font-family:\'Fraunces\',serif;font-size:1.05rem;font-weight:700;margin-bottom:4px}
 .tc-name.t1{color:var(--t1)}.tc-name.t2{color:var(--t2)}.tc-name.t3{color:var(--t3)}
 .tc-name.t4{color:var(--t4)}.tc-name.t8{color:var(--t8)}.tc-name.tall{color:var(--accent)}
 .tc-desc{font-size:.80rem;color:var(--text-muted);line-height:1.4;margin-bottom:10px}
@@ -78,7 +78,7 @@ header p{color:var(--text-muted);font-size:.83rem;letter-spacing:.04em}
 .start-bar-info strong{color:var(--text);font-size:.95rem}
 .start-bar-info span{color:var(--text-muted);font-size:.82rem;margin-left:6px}
 .start-btn{background:var(--accent);color:#fff;border:none;border-radius:50px;padding:12px 30px;
-  font-family:'DM Sans',sans-serif;font-weight:700;font-size:.95rem;cursor:pointer;transition:all .2s;white-space:nowrap}
+  font-family:\'DM Sans\',sans-serif;font-weight:700;font-size:.95rem;cursor:pointer;transition:all .2s;white-space:nowrap}
 .start-btn:hover{background:#4a3ebf;transform:translateY(-1px);box-shadow:0 4px 14px rgba(91,79,207,.35)}
 .start-btn:disabled{opacity:.4;cursor:not-allowed;transform:none;box-shadow:none}
 
@@ -86,9 +86,9 @@ header p{color:var(--text-muted);font-size:.83rem;letter-spacing:.04em}
 #quiz-area{display:none}
 .quiz-header{display:flex;align-items:center;gap:10px;margin-bottom:18px;flex-wrap:wrap}
 .back-btn{background:var(--surface);border:1px solid var(--border);border-radius:50px;padding:7px 16px;
-  color:var(--text-muted);cursor:pointer;font-family:'DM Sans',sans-serif;font-size:.82rem;transition:all .2s;white-space:nowrap}
+  color:var(--text-muted);cursor:pointer;font-family:\'DM Sans\',sans-serif;font-size:.82rem;transition:all .2s;white-space:nowrap}
 .back-btn:hover{border-color:var(--accent);color:var(--accent)}
-.quiz-title{font-family:'Fraunces',serif;font-size:.92rem;color:var(--text-muted);flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.quiz-title{font-family:\'Fraunces\',serif;font-size:.92rem;color:var(--text-muted);flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .score-pill{background:var(--surface);border:1px solid var(--border);border-radius:50px;padding:5px 14px;
   font-family:'DM Mono',monospace;font-size:.8rem;display:flex;align-items:center;gap:8px;flex-shrink:0}
 .sc{color:var(--correct)}.sw{color:var(--wrong)}
@@ -100,13 +100,13 @@ header p{color:var(--text-muted);font-size:.83rem;letter-spacing:.04em}
 .mc-card{background:var(--surface);border-radius:var(--radius);padding:26px;box-shadow:var(--shadow);margin-bottom:14px}
 .q-label{display:inline-block;font-size:.72rem;font-family:'DM Mono',monospace;text-transform:uppercase;letter-spacing:.1em;
   color:var(--text-muted);background:var(--surface2);border-radius:20px;padding:3px 10px;margin-bottom:14px}
-.mc-question{font-family:'Fraunces',serif;font-size:clamp(.92rem,2.4vw,1.1rem);line-height:1.6;margin-bottom:20px}
+.mc-question{font-family:\'Fraunces\',serif;font-size:clamp(.92rem,2.4vw,1.1rem);line-height:1.6;margin-bottom:20px}
 .study-context{font-size:.82rem;color:var(--text-muted);font-style:italic;margin-bottom:14px;line-height:1.5;
   border-left:3px solid var(--border);padding-left:10px}
 .mc-options{display:flex;flex-direction:column;gap:8px}
 .mc-opt{background:var(--surface2);border:1.5px solid var(--border);border-radius:11px;padding:12px 16px;
   cursor:pointer;display:flex;align-items:flex-start;gap:10px;transition:all .2s;font-size:.93rem;
-  text-align:left;color:var(--text);font-family:'DM Sans',sans-serif;line-height:1.45;width:100%}
+  text-align:left;color:var(--text);font-family:\'DM Sans\',sans-serif;line-height:1.45;width:100%}
 .mc-opt:hover:not(:disabled){border-color:var(--accent2);background:rgba(59,130,246,.05);transform:translateX(2px)}
 .mc-opt:disabled{cursor:not-allowed}
 .mc-opt.correct{background:rgba(22,163,74,.08);border-color:var(--correct);color:var(--correct)}
@@ -132,14 +132,14 @@ header p{color:var(--text-muted);font-size:.83rem;letter-spacing:.04em}
 
 /* ── NEXT BTN ── */
 .next-btn{background:var(--accent);color:#fff;border:none;border-radius:50px;padding:12px 32px;
-  font-family:'DM Sans',sans-serif;font-weight:700;font-size:.95rem;cursor:pointer;display:none;
+  font-family:\'DM Sans\',sans-serif;font-weight:700;font-size:.95rem;cursor:pointer;display:none;
   transition:all .2s;margin-top:4px}
 .next-btn.visible{display:inline-flex;align-items:center;gap:6px}
 .next-btn:hover{background:#4a3ebf;transform:translateY(-1px)}
 
 /* ── RESULTS SCREEN ── */
 .results-card{background:var(--surface);border-radius:var(--radius);padding:28px;box-shadow:var(--shadow);text-align:center}
-.results-score{font-family:'Fraunces',serif;font-size:3rem;font-weight:900;margin:12px 0}
+.results-score{font-family:\'Fraunces\',serif;font-size:3rem;font-weight:900;margin:12px 0}
 .results-score.great{color:var(--correct)}.results-score.ok{color:#b45309}.results-score.low{color:var(--wrong)}
 .results-label{font-size:.84rem;color:var(--text-muted);margin-bottom:20px}
 .results-breakdown{display:flex;justify-content:center;gap:24px;margin-bottom:24px;flex-wrap:wrap}
@@ -147,7 +147,7 @@ header p{color:var(--text-muted);font-size:.83rem;letter-spacing:.04em}
 .rb-val{font-family:'DM Mono',monospace;font-size:1.3rem;font-weight:700}
 .rb-lbl{font-size:.76rem;color:var(--text-muted);margin-top:2px}
 .results-btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
-.res-btn{border:none;border-radius:50px;padding:11px 24px;font-family:'DM Sans',sans-serif;font-weight:600;
+.res-btn{border:none;border-radius:50px;padding:11px 24px;font-family:\'DM Sans\',sans-serif;font-weight:600;
   font-size:.9rem;cursor:pointer;transition:all .2s}
 .res-btn.primary{background:var(--accent);color:#fff}
 .res-btn.primary:hover{background:#4a3ebf}
@@ -156,15 +156,15 @@ header p{color:var(--text-muted);font-size:.83rem;letter-spacing:.04em}
 
 /* ── HISTORY PANEL ── */
 .history-controls{display:flex;align-items:center;gap:10px;margin-bottom:16px;flex-wrap:wrap}
-.history-controls h2{font-family:'Fraunces',serif;font-size:1.1rem;font-weight:700;flex:1}
+.history-controls h2{font-family:\'Fraunces\',serif;font-size:1.1rem;font-weight:700;flex:1}
 .reset-all-btn{background:rgba(220,38,38,.08);border:1.5px solid rgba(220,38,38,.2);border-radius:50px;
-  padding:7px 16px;color:var(--wrong);cursor:pointer;font-family:'DM Sans',sans-serif;font-size:.82rem;transition:all .2s}
+  padding:7px 16px;color:var(--wrong);cursor:pointer;font-family:\'DM Sans\',sans-serif;font-size:.82rem;transition:all .2s}
 .reset-all-btn:hover{background:rgba(220,38,38,.15)}
 .history-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
 .h-card{background:var(--surface);border-radius:var(--radius);padding:16px 18px;box-shadow:var(--shadow);border:1.5px solid var(--border)}
 .h-card-head{display:flex;align-items:center;gap:8px;margin-bottom:10px}
 .h-icon{font-size:1.1rem}
-.h-name{font-family:'Fraunces',serif;font-size:.92rem;font-weight:700;flex:1}
+.h-name{font-family:\'Fraunces\',serif;font-size:.92rem;font-weight:700;flex:1}
 .h-name.t1{color:var(--t1)}.h-name.t2{color:var(--t2)}.h-name.t3{color:var(--t3)}
 .h-name.t4{color:var(--t4)}.h-name.t8{color:var(--t8)}.h-name.tall{color:var(--accent)}
 .h-reset{background:none;border:none;color:var(--text-muted);cursor:pointer;padding:3px 6px;border-radius:6px;
@@ -222,19 +222,19 @@ header p{color:var(--text-muted);font-size:.83rem;letter-spacing:.04em}
   --ct-correct:#a8ff78;--ct-wrong:#ff6b6b;--ct-radius:16px;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-#panel-ct body{background:var(--ct-bg);color:var(--ct-text);font-family:'DM Sans',sans-serif;height:100%;overflow:hidden}
+#panel-ct body{background:var(--ct-bg);color:var(--ct-text);font-family:\'DM Sans\',sans-serif;height:100%;overflow:hidden}
 /* Hide all scrollbars everywhere - scroll still works */
 *{scrollbar-width:none;-ms-overflow-style:none}
 #panel-ct *::-webkit-scrollbar{display:none}
 #panel-ct .app{position:relative;z-index:1;max-width:980px;margin:0 auto;padding:14px 16px 60px;height:100%;overflow-y:auto;overflow-x:hidden}
 #panel-ct header{text-align:center;margin-bottom:12px}
-#panel-ct header h1{font-family:'Fraunces',serif;font-size:clamp(1.6rem,4vw,2.4rem);font-weight:900;line-height:1;
+#panel-ct header h1{font-family:\'Fraunces\',serif;font-size:clamp(1.6rem,4vw,2.4rem);font-weight:900;line-height:1;
   background:linear-gradient(135deg,var(--ct-accent) 0%,#fff 55%,var(--ct-accent3) 100%);
   -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:4px}
 #panel-ct header p{color:var(--text-muted);font-size:.84rem;letter-spacing:.04em;margin-top:2px}
 #panel-ct .tab-row{display:flex;gap:4px;margin-bottom:16px;border-bottom:1px solid var(--ct-border)}
 #panel-ct .tab-btn{background:none;border:none;border-bottom:2px solid transparent;padding:10px 16px;
-  color:var(--text-muted);cursor:pointer;font-family:'DM Sans',sans-serif;font-size:.94rem;
+  color:var(--text-muted);cursor:pointer;font-family:\'DM Sans\',sans-serif;font-size:.94rem;
   transition:all .2s;margin-bottom:-1px;white-space:nowrap}
 #panel-ct .tab-btn:hover{color:var(--ct-text)}
 #panel-ct .tab-btn.active{color:var(--ct-accent);border-bottom-color:var(--ct-accent)}
@@ -262,14 +262,14 @@ header p{color:var(--text-muted);font-size:.83rem;letter-spacing:.04em}
 #panel-ct .approach-card.abn::before{background:var(--ct-wrong)}
 #panel-ct .approach-card.abn.active{background:rgba(255,107,107,.1);border-color:var(--ct-wrong)}
 #panel-ct .approach-icon{font-size:2rem;display:block;margin-bottom:8px}
-#panel-ct .approach-name{font-family:'Fraunces',serif;font-size:1.05rem;font-weight:700;margin-bottom:4px}
+#panel-ct .approach-name{font-family:\'Fraunces\',serif;font-size:1.05rem;font-weight:700;margin-bottom:4px}
 #panel-ct .approach-desc{font-size:.82rem;color:var(--text-muted);margin-bottom:8px}
 #panel-ct .approach-count{font-size:.80rem;font-family:'DM Mono',monospace;opacity:.7}
 #panel-ct .approach-slot{display:flex;gap:8px;align-items:stretch}
 #panel-ct .fc-pill{display:flex;flex-direction:column;align-items:center;justify-content:center;
   border-radius:var(--ct-radius);padding:10px 10px;cursor:pointer;transition:all .2s;min-width:48px;gap:6px;
   writing-mode:vertical-rl;text-orientation:mixed;font-size:.76rem;
-  font-family:'DM Sans',sans-serif;letter-spacing:.04em;border-width:2px;border-style:solid}
+  font-family:\'DM Sans\',sans-serif;letter-spacing:.04em;border-width:2px;border-style:solid}
 #panel-ct .fc-pill .fc-pill-icon{writing-mode:horizontal-tb;font-size:1.1rem}
 #panel-ct .fc-pill-bio{background:rgba(168,255,120,.05);border-color:rgba(168,255,120,.2);color:var(--ct-bio)}
 #panel-ct .fc-pill-bio:hover{background:rgba(168,255,120,.12);border-color:var(--ct-bio)}
@@ -290,7 +290,7 @@ header p{color:var(--text-muted);font-size:.83rem;letter-spacing:.04em}
 #panel-ct .topic-section-label{font-size:.78rem;text-transform:uppercase;letter-spacing:.12em;color:var(--text-muted);margin-bottom:10px}
 #panel-ct .topic-chips{display:flex;flex-wrap:wrap;gap:8px}
 #panel-ct .topic-chip-btn{background:var(--ct-surface);border:1px solid var(--ct-border);border-radius:50px;
-  padding:8px 16px;cursor:pointer;transition:all .2s;font-family:'DM Sans',sans-serif;font-size:.92rem;
+  padding:8px 16px;cursor:pointer;transition:all .2s;font-family:\'DM Sans\',sans-serif;font-size:.92rem;
   display:flex;align-items:center;gap:6px;color:var(--text-muted)}
 #panel-ct .topic-chip-btn:hover{color:var(--ct-text)}
 #panel-ct .topic-chip-btn.bio-chip:hover, #panel-ct .topic-chip-btn.bio-chip.active{border-color:var(--ct-bio);color:var(--ct-bio);background:rgba(168,255,120,.08)}
@@ -304,7 +304,7 @@ header p{color:var(--text-muted);font-size:.83rem;letter-spacing:.04em}
 #panel-ct .study-section.visible{display:block}
 #panel-ct .study-search-wrap{position:relative;margin-bottom:10px}
 #panel-ct .study-search{width:100%;background:var(--ct-surface);border:1px solid var(--ct-border);border-radius:50px;
-  padding:10px 16px 10px 38px;color:var(--ct-text);font-family:'DM Sans',sans-serif;font-size:.88rem;outline:none;transition:border-color .2s}
+  padding:10px 16px 10px 38px;color:var(--ct-text);font-family:\'DM Sans\',sans-serif;font-size:.88rem;outline:none;transition:border-color .2s}
 #panel-ct .study-search:focus{border-color:var(--ct-accent3)}
 #panel-ct .search-icon{position:absolute;left:13px;top:50%;transform:translateY(-50%);color:var(--text-muted);pointer-events:none;font-size:.88rem}
 #panel-ct .study-list{display:flex;flex-direction:column;gap:6px;height:360px;overflow-y:auto;padding-right:2px;scroll-behavior:smooth}
@@ -316,7 +316,7 @@ header p{color:var(--text-muted);font-size:.83rem;letter-spacing:.04em}
 #panel-ct .study-row.active{border-color:var(--ct-accent);background:rgba(232,197,71,.07)}
 #panel-ct .sr-thumb{width:42px;height:34px;object-fit:cover;border-radius:6px;flex-shrink:0;background:var(--ct-surface2)}
 #panel-ct .sr-info{flex:1;min-width:0}
-#panel-ct .sr-author{font-family:'Fraunces',serif;font-size:.88rem;font-weight:700;color:var(--ct-accent);
+#panel-ct .sr-author{font-family:\'Fraunces\',serif;font-size:.88rem;font-weight:700;color:var(--ct-accent);
   white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 #panel-ct .sr-keyword{font-size:.80rem;color:var(--text-muted);margin-top:1px}
 #panel-ct .sr-topic-badge{font-size:.74rem;border-radius:6px;padding:1px 6px;flex-shrink:0}
@@ -336,16 +336,16 @@ header p{color:var(--text-muted);font-size:.83rem;letter-spacing:.04em}
 #panel-ct .start-label{font-size:.8rem;color:var(--text-muted);flex:1;min-width:0}
 #panel-ct .start-label strong{color:var(--ct-text)}
 #panel-ct .start-btn{background:var(--ct-accent);color:var(--ct-bg);border:none;border-radius:50px;padding:12px 28px;
-  font-family:'DM Sans',sans-serif;font-weight:700;font-size:.95rem;cursor:pointer;transition:all .2s;white-space:nowrap}
+  font-family:\'DM Sans\',sans-serif;font-weight:700;font-size:.95rem;cursor:pointer;transition:all .2s;white-space:nowrap}
 #panel-ct .start-btn:hover{background:#f5d660;transform:translateY(-1px)}
 #panel-ct .start-btn:disabled{opacity:.4;cursor:not-allowed;transform:none}
 
 /* ── QUIZ ── */
 .quiz-.quiz-.quiz-.quiz-.quiz-header{display:flex;align-items:center;gap:10px;margin-bottom:18px;flex-wrap:wrap}
 #panel-ct .back-btn{background:var(--ct-surface);border:1px solid var(--ct-border);border-radius:50px;padding:7px 14px;
-  color:var(--text-muted);cursor:pointer;font-family:'DM Sans',sans-serif;font-size:.8rem;transition:all .2s;white-space:nowrap}
+  color:var(--text-muted);cursor:pointer;font-family:\'DM Sans\',sans-serif;font-size:.8rem;transition:all .2s;white-space:nowrap}
 #panel-ct .back-btn:hover{border-color:var(--ct-accent3);color:var(--ct-text)}
-#panel-ct .quiz-title-badge{font-family:'Fraunces',serif;font-size:.95rem;color:var(--text-muted);flex:1;min-width:0;
+#panel-ct .quiz-title-badge{font-family:\'Fraunces\',serif;font-size:.95rem;color:var(--text-muted);flex:1;min-width:0;
   overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 #panel-ct .quiz-score-pill{background:var(--ct-surface);border:1px solid var(--ct-border);border-radius:50px;padding:6px 14px;
   font-family:'DM Mono',monospace;font-size:.8rem;display:flex;align-items:center;gap:10px;flex-shrink:0}
@@ -368,7 +368,7 @@ header p{color:var(--text-muted);font-size:.83rem;letter-spacing:.04em}
 #panel-ct .fc-front{background:linear-gradient(135deg,var(--ct-surface),var(--ct-surface2))}
 #panel-ct .fc-back{background:linear-gradient(135deg,#0a120a,#0c100c);border-color:rgba(168,255,120,.2)}
 #panel-ct .fc-img{max-width:160px;max-height:120px;object-fit:contain;border-radius:10px;margin-bottom:12px;box-shadow:0 4px 20px rgba(0,0,0,.6)}
-#panel-ct .fc-author{font-family:'Fraunces',serif;font-size:clamp(1.2rem,3.5vw,1.7rem);font-weight:700;color:var(--ct-accent);margin-bottom:4px}
+#panel-ct .fc-author{font-family:\'Fraunces\',serif;font-size:clamp(1.2rem,3.5vw,1.7rem);font-weight:700;color:var(--ct-accent);margin-bottom:4px}
 #panel-ct .fc-year{font-family:'DM Mono',monospace;font-size:.92rem;color:var(--text-muted);margin-bottom:8px}
 #panel-ct .fc-title{font-size:.92rem;color:var(--text-muted);font-style:italic;max-width:460px;margin-bottom:8px}
 #panel-ct .fc-keyword{display:inline-block;background:rgba(232,197,71,.1);border:1px solid rgba(232,197,71,.3);color:var(--ct-accent);
@@ -383,7 +383,7 @@ header p{color:var(--text-muted);font-size:.83rem;letter-spacing:.04em}
 #panel-ct .topic-badges{display:flex;flex-wrap:wrap;gap:5px;margin-top:8px}
 #panel-ct .t-badge{background:rgba(107,203,255,.1);border:1px solid rgba(107,203,255,.2);color:var(--ct-accent3);border-radius:10px;padding:2px 8px;font-size:.74rem}
 #panel-ct .self-rate-row{display:flex;gap:10px;justify-content:center;margin-top:14px;width:100%;max-width:360px}
-#panel-ct .rate-btn{flex:1;border:none;border-radius:12px;padding:11px 14px;font-family:'DM Sans',sans-serif;font-weight:700;font-size:.95rem;cursor:pointer;transition:all .2s}
+#panel-ct .rate-btn{flex:1;border:none;border-radius:12px;padding:11px 14px;font-family:\'DM Sans\',sans-serif;font-weight:700;font-size:.95rem;cursor:pointer;transition:all .2s}
 #panel-ct .rate-btn.got-it{background:rgba(168,255,120,.15);color:var(--ct-correct);border:1px solid rgba(168,255,120,.3)}
 #panel-ct .rate-btn.got-it:hover{background:rgba(168,255,120,.28)}
 #panel-ct .rate-btn.missed{background:rgba(255,107,107,.15);color:var(--ct-wrong);border:1px solid rgba(255,107,107,.3)}
@@ -392,11 +392,11 @@ header p{color:var(--text-muted);font-size:.83rem;letter-spacing:.04em}
 /* ── MC ── */
 .mc-card{background:var(--ct-surface);border:1px solid var(--ct-border);border-radius:var(--ct-radius);padding:24px}
 #panel-ct .mc-img-hint{max-width:130px;max-height:95px;object-fit:contain;border-radius:8px;float:right;margin:0 0 10px 14px;box-shadow:0 2px 12px rgba(0,0,0,.5)}
-#panel-ct .mc-question{font-family:'Fraunces',serif;font-size:clamp(.9rem,2.5vw,1.08rem);line-height:1.5;margin-bottom:18px;clear:both}
+#panel-ct .mc-question{font-family:\'Fraunces\',serif;font-size:clamp(.9rem,2.5vw,1.08rem);line-height:1.5;margin-bottom:18px;clear:both}
 #panel-ct .mc-options{display:flex;flex-direction:column;gap:8px}
 #panel-ct .mc-option{background:var(--ct-surface2);border:1px solid var(--ct-border);border-radius:12px;padding:11px 15px;
   cursor:pointer;display:flex;align-items:flex-start;gap:10px;transition:all .2s;font-size:.94rem;
-  text-align:left;color:var(--ct-text);font-family:'DM Sans',sans-serif;line-height:1.4;width:100%}
+  text-align:left;color:var(--ct-text);font-family:\'DM Sans\',sans-serif;line-height:1.4;width:100%}
 #panel-ct .mc-option:hover:not(:disabled){border-color:var(--ct-accent3);transform:translateX(3px)}
 #panel-ct .mc-option:disabled{cursor:not-allowed}
 #panel-ct .mc-option.correct{background:rgba(168,255,120,.1);border-color:var(--ct-correct);color:var(--ct-correct)}
@@ -408,21 +408,21 @@ header p{color:var(--text-muted);font-size:.83rem;letter-spacing:.04em}
 /* ── IMAGE Q ── */
 .img-q-card{background:var(--ct-surface);border:1px solid var(--ct-border);border-radius:var(--ct-radius);padding:24px;text-align:center}
 #panel-ct .img-q-img{max-width:240px;max-height:180px;object-fit:contain;border-radius:10px;margin:0 auto 16px;display:block;box-shadow:0 4px 24px rgba(0,0,0,.6)}
-#panel-ct .img-q-prompt{font-family:'Fraunces',serif;font-size:1rem;margin-bottom:16px}
+#panel-ct .img-q-prompt{font-family:\'Fraunces\',serif;font-size:1rem;margin-bottom:16px}
 
 /* ── FITB ── */
 .fitb-card{background:var(--ct-surface);border:1px solid var(--ct-border);border-radius:var(--ct-radius);padding:24px}
 #panel-ct .fitb-img-hint{max-width:120px;max-height:85px;object-fit:contain;border-radius:8px;float:right;margin:0 0 10px 14px;box-shadow:0 2px 12px rgba(0,0,0,.5)}
-#panel-ct .fitb-sentence{font-family:'Fraunces',serif;font-size:clamp(.9rem,2.5vw,1.08rem);line-height:1.7;margin-bottom:16px;clear:both}
+#panel-ct .fitb-sentence{font-family:\'Fraunces\',serif;font-size:clamp(.9rem,2.5vw,1.08rem);line-height:1.7;margin-bottom:16px;clear:both}
 #panel-ct .fitb-blank{display:inline-block;border-bottom:2px solid var(--ct-accent);min-width:80px;text-align:center;color:var(--ct-accent);padding:0 4px}
 #panel-ct .fitb-row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
 #panel-ct .fitb-input{background:var(--ct-surface2);border:1px solid var(--ct-border);border-radius:10px;padding:10px 13px;
-  color:var(--ct-text);font-family:'DM Sans',sans-serif;font-size:.9rem;flex:1;min-width:160px;outline:none;transition:border-color .2s}
+  color:var(--ct-text);font-family:\'DM Sans\',sans-serif;font-size:.9rem;flex:1;min-width:160px;outline:none;transition:border-color .2s}
 #panel-ct .fitb-input:focus{border-color:var(--ct-accent)}
 #panel-ct .fitb-input.correct{border-color:var(--ct-correct);background:rgba(168,255,120,.07)}
 #panel-ct .fitb-input.wrong{border-color:var(--ct-wrong);background:rgba(255,107,107,.07)}
 #panel-ct .check-btn{background:var(--ct-accent);color:var(--ct-bg);border:none;border-radius:10px;padding:10px 16px;
-  font-family:'DM Sans',sans-serif;font-weight:700;font-size:.93rem;cursor:pointer;transition:all .2s;white-space:nowrap}
+  font-family:\'DM Sans\',sans-serif;font-weight:700;font-size:.93rem;cursor:pointer;transition:all .2s;white-space:nowrap}
 #panel-ct .check-btn:hover{background:#f5d660}
 #panel-ct .check-btn:disabled{opacity:.4;cursor:not-allowed}
 #panel-ct .fitb-hint-text{font-size:.80rem;color:var(--text-muted);margin-top:7px}
@@ -462,7 +462,7 @@ header p{color:var(--text-muted);font-size:.83rem;letter-spacing:.04em}
 #panel-ct .match-item.ok{border-color:var(--ct-correct);background:rgba(168,255,120,.08);cursor:default;pointer-events:none}
 #panel-ct .match-item.bad{border-color:var(--ct-wrong);animation:shake .3s}
 #panel-ct .match-item.done{opacity:.35;cursor:default;pointer-events:none}
-#panel-ct .match-study-name{font-family:'Fraunces',serif;font-size:.95rem;color:var(--ct-accent)}
+#panel-ct .match-study-name{font-family:\'Fraunces\',serif;font-size:.95rem;color:var(--ct-accent)}
 #panel-ct .match-thumb{width:34px;height:28px;object-fit:cover;border-radius:5px;flex-shrink:0}
 #panel-ct .match-tally{text-align:center;margin-top:10px;font-size:.88rem;color:var(--text-muted)}
 #panel-ct .match-tally span{color:var(--ct-accent);font-family:'DM Mono',monospace}
@@ -473,7 +473,7 @@ header p{color:var(--text-muted);font-size:.83rem;letter-spacing:.04em}
 /* ── NAV ── */
 .nav-row{display:flex;gap:10px;justify-content:center;margin-top:14px;flex-wrap:wrap}
 #panel-ct .nav-btn{background:var(--ct-surface);border:1px solid var(--ct-border);border-radius:50px;padding:9px 20px;
-  color:var(--ct-text);cursor:pointer;font-family:'DM Sans',sans-serif;font-size:.92rem;transition:all .2s}
+  color:var(--ct-text);cursor:pointer;font-family:\'DM Sans\',sans-serif;font-size:.92rem;transition:all .2s}
 #panel-ct .nav-btn:hover{border-color:var(--ct-accent);color:var(--ct-accent);transform:translateY(-1px)}
 #panel-ct .nav-btn.primary{background:var(--ct-accent);color:var(--ct-bg);border-color:var(--ct-accent);font-weight:700}
 #panel-ct .nav-btn.primary:hover{background:#f5d660}
@@ -481,7 +481,7 @@ header p{color:var(--text-muted);font-size:.83rem;letter-spacing:.04em}
 /* ── COMPLETE ── */
 .complete-card{background:linear-gradient(135deg,var(--ct-surface),#081008);border:1px solid rgba(168,255,120,.2);border-radius:var(--ct-radius);padding:36px 24px;text-align:center}
 #panel-ct .complete-emoji{font-size:2.4rem;margin-bottom:10px}
-#panel-ct .complete-title{font-family:'Fraunces',serif;font-size:1.7rem;font-weight:700;color:var(--ct-correct);margin-bottom:6px}
+#panel-ct .complete-title{font-family:\'Fraunces\',serif;font-size:1.7rem;font-weight:700;color:var(--ct-correct);margin-bottom:6px}
 #panel-ct .complete-stats{display:flex;justify-content:center;gap:24px;margin:18px 0;flex-wrap:wrap}
 #panel-ct .stat-item{text-align:center}
 #panel-ct .stat-num{font-family:'DM Mono',monospace;font-size:1.7rem;color:var(--ct-accent)}
@@ -491,17 +491,17 @@ header p{color:var(--text-muted);font-size:.83rem;letter-spacing:.04em}
 
 /* ── HISTORY ── */
 .history-header{display:flex;align-items:center;margin-bottom:52px}
-#panel-ct .history-header h2{font-family:'Fraunces',serif;font-size:1.3rem;font-weight:700;white-space:nowrap}
-#panel-ct .clear-all-btn{background:rgba(255,107,107,.1);border:1px solid rgba(255,107,107,.25);color:var(--ct-wrong);border-radius:20px;padding:5px 14px;font-size:.84rem;cursor:pointer;font-family:'DM Sans',sans-serif;flex-shrink:0;white-space:nowrap}
+#panel-ct .history-header h2{font-family:\'Fraunces\',serif;font-size:1.3rem;font-weight:700;white-space:nowrap}
+#panel-ct .clear-all-btn{background:rgba(255,107,107,.1);border:1px solid rgba(255,107,107,.25);color:var(--ct-wrong);border-radius:20px;padding:5px 14px;font-size:.84rem;cursor:pointer;font-family:\'DM Sans\',sans-serif;flex-shrink:0;white-space:nowrap}
 #panel-ct .clear-all-btn:hover{background:rgba(255,107,107,.2)}
 #panel-ct .history-scope-tabs{display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap;align-items:center}
-#panel-ct .hs-tab{background:var(--ct-surface);border:1px solid var(--ct-border);border-radius:20px;padding:5px 14px;font-size:.86rem;cursor:pointer;transition:all .2s;color:var(--text-muted);font-family:'DM Sans',sans-serif}
+#panel-ct .hs-tab{background:var(--ct-surface);border:1px solid var(--ct-border);border-radius:20px;padding:5px 14px;font-size:.86rem;cursor:pointer;transition:all .2s;color:var(--text-muted);font-family:\'DM Sans\',sans-serif}
 #panel-ct .hs-tab:hover{border-color:var(--ct-accent3)}
 #panel-ct .hs-tab.active{background:rgba(107,203,255,.12);border-color:var(--ct-accent3);color:var(--ct-accent3)}
 #panel-ct .history-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:10px}
 #panel-ct .h-card{background:var(--ct-surface);border:1px solid var(--ct-border);border-radius:var(--ct-radius);padding:14px 16px}
 #panel-ct .h-card-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
-#panel-ct .h-topic{font-family:'Fraunces',serif;font-size:.88rem;font-weight:700}
+#panel-ct .h-topic{font-family:\'Fraunces\',serif;font-size:.88rem;font-weight:700}
 #panel-ct .h-count{font-size:.75rem;color:var(--text-muted);background:var(--ct-surface2);border-radius:7px;padding:2px 7px}
 #panel-ct .h-list{display:flex;flex-direction:column;gap:4px}
 #panel-ct .h-row{display:flex;align-items:center;justify-content:space-between;padding:5px 0;border-bottom:1px solid var(--ct-border);font-size:.84rem}
@@ -516,7 +516,7 @@ header p{color:var(--text-muted);font-size:.83rem;letter-spacing:.04em}
 #panel-ct .h-none{color:var(--text-muted);font-size:.86rem;padding:6px 0;font-style:italic}
 #panel-ct .history-footer{display:flex;justify-content:flex-end;margin-top:20px;padding-top:14px;border-top:1px solid var(--ct-border)}
 #panel-ct .h-reset-btn{background:none;border:1px solid rgba(255,107,107,.25);color:rgba(255,107,107,.6);
-  border-radius:6px;padding:2px 7px;font-size:.82rem;cursor:pointer;transition:all .2s;flex-shrink:0;font-family:'DM Sans',sans-serif}
+  border-radius:6px;padding:2px 7px;font-size:.82rem;cursor:pointer;transition:all .2s;flex-shrink:0;font-family:\'DM Sans\',sans-serif}
 #panel-ct .h-reset-btn:hover{background:rgba(255,107,107,.12);color:var(--ct-wrong);border-color:var(--ct-wrong)}
 #panel-ct .study-answer-count{font-size:.78rem;color:var(--text-muted);font-family:monospace;white-space:nowrap}
 @keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-4px)}75%{transform:translateX(4px)}}
@@ -570,12 +570,13 @@ header p{color:var(--text-muted);font-size:.83rem;letter-spacing:.04em}
 </style>
 </head>
 <body>
-<div id="lock-screen" style="position:fixed;inset:0;z-index:99999;background:#000;display:flex;align-items:center;justify-content:center;font-family:'DM Sans',sans-serif;"><div style="text-align:center;padding:40px 32px;max-width:360px;width:90%;"><div style="font-family:'Fraunces',serif;font-size:2.2rem;font-weight:900;background:linear-gradient(135deg,#7c6ff7,#38bdf8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:6px;">IB Psychology SL</div><div style="color:#8b89a0;font-size:.84rem;margin-bottom:6px;">2026 Study Tool</div><div style="color:#555;font-size:.72rem;letter-spacing:.08em;margin-bottom:32px;">Version: v20260511a</div><div style="position:relative;margin-bottom:12px;"><input id="lock-input" type="password" placeholder="Enter access code" autocomplete="off" onkeydown="if(event.key==='Enter')checkLock()" style="width:100%;box-sizing:border-box;padding:13px 44px 13px 16px;border-radius:12px;border:1.5px solid rgba(255,255,255,.15);background:rgba(255,255,255,.06);color:#fffffe;font-family:'DM Sans',sans-serif;font-size:1rem;outline:none;text-align:center;letter-spacing:.2em;transition:border-color .2s;" onfocus="this.style.borderColor='#7c6ff7'" onblur="this.style.borderColor='rgba(255,255,255,.15)'"><button type="button" onclick="var i=document.getElementById('lock-input');i.type=i.type==='password'?'text':'password';this.textContent=i.type==='password'?'👁':'🙈';" style="position:absolute;right:12px;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;font-size:1.1rem;padding:0;color:#8b89a0;line-height:1;">👁</button></div><button onclick="checkLock()" style="width:100%;padding:13px;border-radius:12px;border:none;background:linear-gradient(135deg,#7c6ff7,#38bdf8);color:#fff;font-family:'DM Sans',sans-serif;font-weight:700;font-size:1rem;cursor:pointer;">Unlock &rarr;</button><label style="display:flex;align-items:center;justify-content:center;gap:8px;margin-top:14px;cursor:pointer;color:#8b89a0;font-size:.83rem;user-select:none;"><input type="checkbox" id="lock-remember" style="width:15px;height:15px;cursor:pointer;accent-color:#7c6ff7;"> Remember me on this device</label><div id="lock-error" style="color:#ff6b6b;font-size:.83rem;margin-top:10px;min-height:18px;"></div></div></div>
+<div id="lock-screen" style="position:fixed;inset:0;z-index:99999;background:#000;display:flex;align-items:center;justify-content:center;font-family:\'DM Sans\',sans-serif;"><div style="text-align:center;padding:40px 32px;max-width:360px;width:90%;"><div style="font-family:\'Fraunces\',serif;font-size:2.2rem;font-weight:900;background:linear-gradient(135deg,#7c6ff7,#38bdf8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:6px;">IB Psychology SL</div><div style="color:#8b89a0;font-size:.84rem;margin-bottom:6px;">2026 Study Tool</div><div style="color:#555;font-size:.72rem;letter-spacing:.08em;margin-bottom:32px;">Version: v20260511a</div><div style="position:relative;margin-bottom:12px;"><input id="lock-input" type="password" placeholder="Enter access code" autocomplete="off" onkeydown="if(event.key==='Enter')checkLock()" style="width:100%;box-sizing:border-box;padding:13px 44px 13px 16px;border-radius:12px;border:1.5px solid rgba(255,255,255,.15);background:rgba(255,255,255,.06);color:#fffffe;font-family:\'DM Sans\',sans-serif;font-size:1rem;outline:none;text-align:center;letter-spacing:.2em;transition:border-color .2s;" onfocus="this.style.borderColor='#7c6ff7'" onblur="this.style.borderColor='rgba(255,255,255,.15)'"><button type="button" onclick="var i=document.getElementById('lock-input');i.type=i.type==='password'?'text':'password';this.textContent=i.type==='password'?'👁':'🙈';" style="position:absolute;right:12px;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;font-size:1.1rem;padding:0;color:#8b89a0;line-height:1;">👁</button></div><button onclick="checkLock()" style="width:100%;padding:13px;border-radius:12px;border:none;background:linear-gradient(135deg,#7c6ff7,#38bdf8);color:#fff;font-family:\'DM Sans\',sans-serif;font-weight:700;font-size:1rem;cursor:pointer;">Unlock &rarr;</button><label style="display:flex;align-items:center;justify-content:center;gap:8px;margin-top:14px;cursor:pointer;color:#8b89a0;font-size:.83rem;user-select:none;"><input type="checkbox" id="lock-remember" style="width:15px;height:15px;cursor:pointer;accent-color:#7c6ff7;"> Remember me on this device</label><div id="lock-error" style="color:#ff6b6b;font-size:.83rem;margin-top:10px;min-height:18px;"></div><div style="margin-top:20px;padding-top:16px;border-top:1px solid rgba(255,255,255,.08);font-size:.82rem;color:#555;">Don't have an access code?<br><span onclick="showAccessRequestModal()" style="color:#7c6ff7;cursor:pointer;text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Click here to request one</span></div><div id="lock-attempts-hint" style="display:none;margin-top:12px;padding:12px 14px;background:rgba(255,107,107,.08);border:1px solid rgba(255,107,107,.2);border-radius:10px;font-size:.82rem;color:#ff6b6b;line-height:1.6;">Having trouble with the code?<br><span onclick="showAccessRequestModal()" style="color:#7c6ff7;cursor:pointer;text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Request an access code</span> or <span onclick="showContactModal()" style="color:#7c6ff7;cursor:pointer;text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">contact the developer</span></div></div></div>
 <div class="app">
 <header>
   <h1>IB Psychology SL</h1>
   <p>Review Tool · Topics 1, 2, 3, 4 &amp; 8 · 2026 Syllabus</p>
   <p style="font-size:.72rem;color:var(--text-muted);margin-top:4px;letter-spacing:.08em;">Version: v20260511a</p>
+  <p style="font-size:.72rem;margin-top:4px;"><span onclick="showContactModal()" style="color:var(--text-muted);cursor:pointer;text-decoration:underline;text-underline-offset:3px;opacity:.6;transition:opacity .2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='.6'">Contact Developer</span></p>
 </header>
 
 <div class="tab-row">
@@ -666,7 +667,7 @@ header p{color:var(--text-muted);font-size:.83rem;letter-spacing:.04em}
     <div class="start-row">
       <div class="start-label" id="ct-start-label"><strong>All 29 studies</strong> — fully mixed formats</div>
       <div style="display:flex;gap:10px;align-items:center;">
-        <button onclick="showImportModal()" style="background:rgba(232,197,71,.08);border:1px solid rgba(232,197,71,.25);color:#e8c547;border-radius:50px;padding:10px 18px;font-family:'DM Sans',sans-serif;font-size:.86rem;cursor:pointer;">📥 Import Scores</button>
+        <button onclick="showImportModal()" style="background:rgba(232,197,71,.08);border:1px solid rgba(232,197,71,.25);color:#e8c547;border-radius:50px;padding:10px 18px;font-family:\'DM Sans\',sans-serif;font-size:.86rem;cursor:pointer;">📥 Import Scores</button>
         <button class="start-btn" id="ct-start-btn" onclick="CT_startQuiz()">▶ Start Session</button>
       </div>
     </div>
@@ -700,7 +701,7 @@ header p{color:var(--text-muted);font-size:.83rem;letter-spacing:.04em}
 <div class="ct-inner-panel" id="ct-panel-history" style="padding-top:8px">
   <div class="history-header" style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;">
     <h2>📊 Session History</h2>
-    <div style="display:flex;gap:8px;"><button onclick="showImportModal()" style="background:rgba(232,197,71,.1);border:1px solid rgba(232,197,71,.3);color:#e8c547;border-radius:20px;padding:6px 14px;font-size:.82rem;cursor:pointer;font-family:'DM Sans',sans-serif;">📥 Import</button><button onclick="exportScores()" style="background:rgba(168,255,120,.1);border:1px solid rgba(168,255,120,.3);color:#a8ff78;border-radius:20px;padding:6px 14px;font-size:.82rem;cursor:pointer;font-family:'DM Sans',sans-serif;">💾 Export</button></div>
+    <div style="display:flex;gap:8px;"><button onclick="showImportModal()" style="background:rgba(232,197,71,.1);border:1px solid rgba(232,197,71,.3);color:#e8c547;border-radius:20px;padding:6px 14px;font-size:.82rem;cursor:pointer;font-family:\'DM Sans\',sans-serif;">📥 Import</button><button onclick="exportScores()" style="background:rgba(168,255,120,.1);border:1px solid rgba(168,255,120,.3);color:#a8ff78;border-radius:20px;padding:6px 14px;font-size:.82rem;cursor:pointer;font-family:\'DM Sans\',sans-serif;">💾 Export</button></div>
   </div>
   <div class="history-scope-tabs">
     <button class="hs-tab active" onclick="CT_setHistoryScope('approach')">By Approach</button>
@@ -3608,9 +3609,9 @@ function showImportModal() {
     <div style="position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);
       background:#111;border:1px solid rgba(255,255,255,.12);border-radius:18px;
       padding:28px 30px;z-index:9999;width:min(520px,92vw);max-height:90vh;overflow-y:auto;
-      font-family:'DM Sans',sans-serif;color:#fffffe;box-shadow:0 12px 50px rgba(0,0,0,.7);">
+      font-family:\'DM Sans\',sans-serif;color:#fffffe;box-shadow:0 12px 50px rgba(0,0,0,.7);">
 
-      <h2 style="font-family:'Fraunces',serif;font-size:1.25rem;margin-bottom:6px;">📥 Import Scores</h2>
+      <h2 style="font-family:\'Fraunces\',serif;font-size:1.25rem;margin-bottom:6px;">📥 Import Scores</h2>
       <p style="color:#8b89a0;font-size:.84rem;line-height:1.5;margin-bottom:18px;">
         Import scores saved from a previous version of the tool.<br>
         <span style="color:#e8c547;">⚠ Existing scores will be cleared first, then replaced.</span>
@@ -3625,13 +3626,13 @@ function showImportModal() {
           <button onclick="selectOS('mac')" id="os-mac"
             style="flex:1;padding:12px 10px;border-radius:12px;border:1.5px solid rgba(255,255,255,.15);
             background:rgba(255,255,255,.04);color:#fffffe;cursor:pointer;font-size:.92rem;
-            font-family:'DM Sans',sans-serif;transition:all .15s;line-height:1.4;">
+            font-family:\'DM Sans\',sans-serif;transition:all .15s;line-height:1.4;">
             🍎 Mac
           </button>
           <button onclick="selectOS('windows')" id="os-windows"
             style="flex:1;padding:12px 10px;border-radius:12px;border:1.5px solid rgba(255,255,255,.15);
             background:rgba(255,255,255,.04);color:#fffffe;cursor:pointer;font-size:.92rem;
-            font-family:'DM Sans',sans-serif;transition:all .15s;line-height:1.4;">
+            font-family:\'DM Sans\',sans-serif;transition:all .15s;line-height:1.4;">
             🪟 Windows
           </button>
         </div>
@@ -3689,7 +3690,7 @@ function showImportModal() {
               style="display:block;margin-top:8px;width:100%;
               background:rgba(168,255,120,.15);border:1px solid rgba(168,255,120,.3);
               color:#a8ff78;border-radius:6px;padding:6px 12px;font-size:.82rem;
-              cursor:pointer;font-family:'DM Sans',sans-serif;">
+              cursor:pointer;font-family:\'DM Sans\',sans-serif;">
               📋 Copy command
             </button>
           </div>
@@ -3720,12 +3721,12 @@ function showImportModal() {
       <div style="display:flex;gap:10px;justify-content:flex-end;margin-top:4px;">
         <button onclick="closeImportModal()"
           style="padding:10px 22px;border-radius:50px;border:1px solid rgba(255,255,255,.15);
-          background:none;color:#8b89a0;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:.9rem;">
+          background:none;color:#8b89a0;cursor:pointer;font-family:\'DM Sans\',sans-serif;font-size:.9rem;">
           Cancel
         </button>
         <button id="imp-go-btn" onclick="runImport()" disabled
           style="padding:10px 26px;border-radius:50px;border:none;background:#e8c547;
-          color:#000;cursor:pointer;font-family:'DM Sans',sans-serif;font-weight:700;
+          color:#000;cursor:pointer;font-family:\'DM Sans\',sans-serif;font-weight:700;
           font-size:.9rem;opacity:.35;transition:all .2s;">
           ✓ Import Scores
         </button>
@@ -3905,9 +3906,11 @@ function mergeIntoStorage(storageKey, incoming) {
   }
 })();
 
+var _lockAttempts = 0;
 function checkLock(){
   var val=document.getElementById('lock-input').value;
   if(val==='202605PSY'){
+    _lockAttempts = 0;
     var remember=document.getElementById('lock-remember');
     if(remember && remember.checked){
       localStorage.setItem('psy_ok','1');
@@ -3919,11 +3922,24 @@ function checkLock(){
     ls.style.opacity='0';
     setTimeout(function(){ ls.style.display='none'; },420);
   } else {
+    _lockAttempts++;
     var err=document.getElementById('lock-error');
     err.textContent='Incorrect code — try again';
     document.getElementById('lock-input').value='';
     document.getElementById('lock-input').focus();
     setTimeout(function(){ err.textContent=''; },2500);
+    if(_lockAttempts >= 3){
+      var hint = document.getElementById('lock-attempts-hint');
+      if(hint) hint.style.display='block';
+      // Notify admin server-side
+      if(APPS_SCRIPT_URL && APPS_SCRIPT_URL.indexOf('REPLACE')===-1){
+        fetch(APPS_SCRIPT_URL, {
+          method:'POST', mode:'cors',
+          headers:{'Content-Type':'application/json'},
+          body: JSON.stringify({action:'wrong_code_alert', version:TOOL_VERSION, ts:new Date().toISOString()})
+        }).catch(function(){});
+      }
+    }
   }
 }
 
@@ -4036,6 +4052,310 @@ window.addEventListener('load', function(){
   loadSheetRowCount();
 });
 </script>
+
+
+<script>
+// ═══════════════════════════════════════════════════════════════
+// SHARED HELPERS
+// ═══════════════════════════════════════════════════════════════
+function isValidEmail(e){ return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e.trim()); }
+
+function apiPost(payload, onSuccess, onError){
+  fetch(APPS_SCRIPT_URL, {
+    method:'POST',
+    mode:'cors',
+    headers:{'Content-Type':'application/json'},
+    body: JSON.stringify(payload)
+  })
+  .then(function(r){ return r.json(); })
+  .then(function(d){
+    if(d.status==='ok') onSuccess(d);
+    else onError(d.message || 'Server error. Please try again.');
+  })
+  .catch(function(){ onError('Could not reach the server. Please check your connection.'); });
+}
+
+function modalOverlay(id){
+  var d = document.createElement('div');
+  d.id = id;
+  d.style.cssText = 'position:fixed;inset:0;z-index:999999;display:flex;'
+    +'align-items:center;justify-content:center;font-family:"DM Sans",sans-serif;';
+  return d;
+}
+
+function modalBox(){
+  var d = document.createElement('div');
+  d.style.cssText = 'position:relative;background:#111;border:1px solid rgba(255,255,255,.12);'
+    +'border-radius:18px;padding:28px 28px 24px;z-index:1;width:min(480px,92vw);'
+    +'max-height:90vh;overflow-y:auto;box-shadow:0 12px 50px rgba(0,0,0,.7);';
+  return d;
+}
+
+function fieldStyle(){
+  return 'width:100%;box-sizing:border-box;padding:10px 12px;border-radius:10px;'
+    +'border:1.5px solid rgba(255,255,255,.12);background:rgba(255,255,255,.05);'
+    +'color:#fffffe;font-size:.9rem;outline:none;font-family:"DM Sans",sans-serif;';
+}
+
+function labelHtml(text){
+  return '<label style="font-size:.8rem;color:#8b89a0;display:block;margin-bottom:5px;">'+text+'</label>';
+}
+
+function inputHtml(id, type, placeholder){
+  return '<input id="'+id+'" type="'+type+'" placeholder="'+placeholder+'" style="'+fieldStyle()+'">';
+}
+
+function btnPrimary(label, onclick){
+  return '<button onclick="'+onclick+'" style="padding:10px 24px;border-radius:50px;border:none;'
+    +'background:linear-gradient(135deg,#7c6ff7,#38bdf8);color:#fff;cursor:pointer;'
+    +'font-family:\'DM Sans\',sans-serif;font-weight:700;font-size:.88rem;">'+label+'</button>';
+}
+
+function btnSecondary(label, onclick){
+  return '<button onclick="'+onclick+'" style="padding:10px 20px;border-radius:50px;'
+    +'border:1px solid rgba(255,255,255,.15);background:none;color:#8b89a0;cursor:pointer;'
+    +'font-family:\'DM Sans\',sans-serif;font-size:.88rem;">'+label+'</button>';
+}
+
+function successHtml(box, msg){
+  box.innerHTML = '<div style="text-align:center;padding:20px 0;">'
+    +'<div style="font-size:2.5rem;margin-bottom:12px;">&#10003;</div>'
+    +'<div style="font-family:\'Fraunces\',serif;font-size:1.2rem;color:#a8ff78;margin-bottom:8px;">Sent!</div>'
+    +'<div style="font-size:.86rem;color:#8b89a0;line-height:1.6;margin-bottom:20px;">'+msg+'</div>'
+    +btnSecondary('Close','document.getElementById(\'access-request-modal\').remove()')
+    +'</div>';
+}
+
+// ═══════════════════════════════════════════════════════════════
+// ACCESS REQUEST MODAL
+// ═══════════════════════════════════════════════════════════════
+function showAccessRequestModal(){
+  var id = 'access-request-modal';
+  var ex = document.getElementById(id); if(ex) ex.remove();
+
+  var overlay = modalOverlay(id);
+  var box     = modalBox();
+
+  box.innerHTML =
+    '<div style="font-family:\'Fraunces\',serif;font-size:1.2rem;font-weight:700;color:#fffffe;margin-bottom:4px;">Request Access Code</div>'
+   +'<div style="font-size:.83rem;color:#8b89a0;margin-bottom:20px;line-height:1.5;">Fill in all fields. Your request will be reviewed and the code sent to your email.</div>'
+   +'<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px;">'
+   +  '<div>'+labelHtml('First Name *')+inputHtml('req-first','text','First name')+'</div>'
+   +  '<div>'+labelHtml('Last Name *')+inputHtml('req-last','text','Last name')+'</div>'
+   +'</div>'
+   +'<div style="margin-bottom:14px;">'+labelHtml('Email Address *')+inputHtml('req-email','email','your@email.com')
+   +'<div id="req-email-err" style="color:#ff6b6b;font-size:.76rem;margin-top:4px;min-height:16px;"></div></div>'
+   +'<div style="margin-bottom:14px;">'+labelHtml('Reason for requesting access *')
+   +'<textarea id="req-reason" placeholder="e.g. I am an IB Psychology teacher at..." rows="3" style="'+fieldStyle()+'resize:vertical;"></textarea></div>'
+   +'<div style="margin-bottom:20px;">'+labelHtml('How did you hear about this tool? *')
+   +'<select id="req-source" onchange="toggleOtherSource(this.value)" style="'+fieldStyle()+'cursor:pointer;background:#1a1a1a;">'
+   +'<option value="">Select an option...</option>'
+   +'<option value="Student">I am a student using this tool</option>'
+   +'<option value="Teacher - ISI">Teacher at International School of Indiana</option>'
+   +'<option value="Teacher - Other">Teacher at another school</option>'
+   +'<option value="Parent">Parent of a student</option>'
+   +'<option value="Social Media">Social media</option>'
+   +'<option value="Friend/Colleague">Friend or colleague</option>'
+   +'<option value="Other">Other</option>'
+   +'</select>'
+   +'<div id="req-other-wrap" style="display:none;margin-top:10px;">'
+   +inputHtml('req-other','text','Please describe how you heard about this tool...')
+   +'</div></div>'
+   +'<div id="req-err" style="color:#ff6b6b;font-size:.82rem;margin-bottom:12px;min-height:18px;"></div>'
+   +'<div style="display:flex;gap:10px;justify-content:flex-end;">'
+   +btnSecondary('Cancel','document.getElementById(\'access-request-modal\').remove()')
+   +btnPrimary('Send Request &rarr;','submitAccessRequest()')
+   +'</div>';
+
+  overlay.appendChild(box);
+  overlay.addEventListener('click', function(e){ if(e.target===overlay) overlay.remove(); });
+  document.body.appendChild(overlay);
+  setTimeout(function(){ var i=document.getElementById('req-first'); if(i) i.focus(); },100);
+}
+
+function toggleOtherSource(val){
+  var w = document.getElementById('req-other-wrap');
+  if(w) w.style.display = (val==='Other') ? 'block' : 'none';
+}
+
+function submitAccessRequest(){
+  document.getElementById('req-err').textContent = '';
+  document.getElementById('req-email-err').textContent = '';
+
+  var first  = document.getElementById('req-first').value.trim();
+  var last   = document.getElementById('req-last').value.trim();
+  var email  = document.getElementById('req-email').value.trim();
+  var reason = document.getElementById('req-reason').value.trim();
+  var source = document.getElementById('req-source').value;
+  var other  = document.getElementById('req-other') ? document.getElementById('req-other').value.trim() : '';
+
+  var errs = [];
+  if(!first)  errs.push('First name is required.');
+  if(!last)   errs.push('Last name is required.');
+  if(!email)  errs.push('Email is required.');
+  else if(!isValidEmail(email)){ document.getElementById('req-email-err').textContent='Please enter a valid email address.'; errs.push(''); }
+  if(!reason) errs.push('Please describe your reason.');
+  if(!source) errs.push('Please tell us how you heard about the tool.');
+  if(source==='Other' && !other) errs.push('Please describe how you heard about the tool.');
+
+  var realErrs = errs.filter(function(e){ return e!==''; });
+  if(realErrs.length){ document.getElementById('req-err').textContent = realErrs.join(' '); return; }
+
+  var btn = document.querySelector('#access-request-modal button:last-child');
+  if(btn){ btn.disabled=true; btn.textContent='Sending...'; }
+
+  apiPost({
+    action:'access_request',
+    firstName: first, lastName: last, email: email,
+    reason: reason,
+    source: source==='Other' ? 'Other - '+other : source,
+    version: TOOL_VERSION
+  }, function(){
+    var box = document.querySelector('#access-request-modal div[style*="position:relative"]');
+    if(!box) box = document.querySelector('#access-request-modal > div > div');
+    box.innerHTML = '<div style="text-align:center;padding:20px 0;">'
+      +'<div style="font-size:2.5rem;margin-bottom:12px;">&#10003;</div>'
+      +'<div style="font-family:\'Fraunces\',serif;font-size:1.2rem;color:#a8ff78;margin-bottom:8px;">Request sent!</div>'
+      +'<div style="font-size:.86rem;color:#8b89a0;line-height:1.6;margin-bottom:20px;">'
+      +'The administrator has been notified and will send the access code to <strong style="color:#fffffe;">'+email+'</strong>.</div>'
+      +'<button onclick="document.getElementById(\'access-request-modal\').remove()" '
+      +'style="padding:10px 28px;border-radius:50px;border:none;background:rgba(168,255,120,.15);'
+      +'color:#a8ff78;cursor:pointer;font-weight:700;font-size:.9rem;">Close</button>'
+      +'</div>';
+  }, function(msg){
+    var btn2 = document.querySelector('#access-request-modal button:last-child');
+    if(btn2){ btn2.disabled=false; btn2.textContent='Send Request →'; }
+    document.getElementById('req-err').textContent = msg;
+  });
+}
+
+// ═══════════════════════════════════════════════════════════════
+// CONTACT / FEEDBACK MODAL
+// ═══════════════════════════════════════════════════════════════
+function showContactModal(){
+  var id = 'contact-modal';
+  var ex = document.getElementById(id); if(ex) ex.remove();
+
+  var overlay = modalOverlay(id);
+  var box     = modalBox();
+
+  box.innerHTML =
+    '<div style="font-family:\'Fraunces\',serif;font-size:1.2rem;font-weight:700;color:#fffffe;margin-bottom:4px;">Contact Developer</div>'
+   +'<div style="font-size:.83rem;color:#8b89a0;margin-bottom:20px;line-height:1.5;">Report an issue, send feedback, or ask a question. You can attach up to 5 files.</div>'
+   +'<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px;">'
+   +  '<div>'+labelHtml('First Name *')+inputHtml('con-first','text','First name')+'</div>'
+   +  '<div>'+labelHtml('Last Name *')+inputHtml('con-last','text','Last name')+'</div>'
+   +'</div>'
+   +'<div style="margin-bottom:14px;">'+labelHtml('Email Address *')+inputHtml('con-email','email','your@email.com')
+   +'<div id="con-email-err" style="color:#ff6b6b;font-size:.76rem;margin-top:4px;min-height:16px;"></div></div>'
+   +'<div style="margin-bottom:14px;">'+labelHtml('Message *')
+   +'<textarea id="con-message" placeholder="Describe your issue, feedback, or question in detail..." rows="5" style="'+fieldStyle()+'resize:vertical;"></textarea></div>'
+   +'<div style="margin-bottom:20px;">'
+   +labelHtml('Attach files (optional, up to 5)')
+   +'<label style="display:flex;align-items:center;gap:10px;padding:10px 14px;'
+   +'border:1.5px dashed rgba(255,255,255,.15);border-radius:10px;cursor:pointer;'
+   +'transition:border-color .2s;" onmouseover="this.style.borderColor=\'#7c6ff7\'" onmouseout="this.style.borderColor=\'rgba(255,255,255,.15)\'">'
+   +'<span style="font-size:1.2rem;">📎</span>'
+   +'<span id="con-file-label" style="font-size:.86rem;color:#8b89a0;">Click to choose files...</span>'
+   +'<input type="file" id="con-files" multiple accept="image/*,.pdf,.txt,.log" style="display:none;" onchange="updateFileLabel(this)">'
+   +'</label></div>'
+   +'<div id="con-err" style="color:#ff6b6b;font-size:.82rem;margin-bottom:12px;min-height:18px;"></div>'
+   +'<div style="display:flex;gap:10px;justify-content:flex-end;">'
+   +btnSecondary('Cancel','document.getElementById(\'contact-modal\').remove()')
+   +btnPrimary('Send Feedback &rarr;','submitContact()')
+   +'</div>';
+
+  overlay.appendChild(box);
+  overlay.addEventListener('click', function(e){ if(e.target===overlay) overlay.remove(); });
+  document.body.appendChild(overlay);
+  setTimeout(function(){ var i=document.getElementById('con-first'); if(i) i.focus(); },100);
+}
+
+function updateFileLabel(input){
+  var label = document.getElementById('con-file-label');
+  if(!input.files || input.files.length===0){
+    label.textContent = 'Click to choose files...';
+    return;
+  }
+  if(input.files.length > 5){
+    label.textContent = 'Maximum 5 files allowed — please reselect';
+    label.style.color = '#ff6b6b';
+    input.value = '';
+    return;
+  }
+  var names = Array.from(input.files).map(function(f){ return f.name; });
+  label.textContent = names.join(', ');
+  label.style.color = '#a8ff78';
+}
+
+function submitContact(){
+  document.getElementById('con-err').textContent = '';
+  document.getElementById('con-email-err').textContent = '';
+
+  var first   = document.getElementById('con-first').value.trim();
+  var last    = document.getElementById('con-last').value.trim();
+  var email   = document.getElementById('con-email').value.trim();
+  var message = document.getElementById('con-message').value.trim();
+  var filesEl = document.getElementById('con-files');
+  var files   = filesEl && filesEl.files ? Array.from(filesEl.files) : [];
+
+  var errs = [];
+  if(!first)   errs.push('First name is required.');
+  if(!last)    errs.push('Last name is required.');
+  if(!email)   errs.push('Email is required.');
+  else if(!isValidEmail(email)){ document.getElementById('con-email-err').textContent='Please enter a valid email address.'; errs.push(''); }
+  if(!message) errs.push('Please enter a message.');
+
+  var realErrs = errs.filter(function(e){ return e!==''; });
+  if(realErrs.length){ document.getElementById('con-err').textContent = realErrs.join(' '); return; }
+
+  var btn = document.querySelector('#contact-modal button:last-child');
+  if(btn){ btn.disabled=true; btn.textContent='Sending...'; }
+
+  // Get current access code from session/local storage (stored on successful unlock)
+  var accessCode = localStorage.getItem('psy_code') || sessionStorage.getItem('psy_code') || '(not captured)';
+
+  apiPost({
+    action:     'contact',
+    firstName:  first, lastName: last, email: email,
+    message:    message,
+    accessCode: accessCode,
+    version:    TOOL_VERSION,
+    fileNames:  files.map(function(f){ return f.name; })
+  }, function(){
+    var box = document.querySelector('#contact-modal > div > div');
+    box.innerHTML = '<div style="text-align:center;padding:20px 0;">'
+      +'<div style="font-size:2.5rem;margin-bottom:12px;">&#10003;</div>'
+      +'<div style="font-family:\'Fraunces\',serif;font-size:1.2rem;color:#a8ff78;margin-bottom:8px;">Message sent!</div>'
+      +'<div style="font-size:.86rem;color:#8b89a0;line-height:1.6;margin-bottom:20px;">'
+      +'Thank you! The developer will review your feedback and may follow up at <strong style="color:#fffffe;">'+email+'</strong>.'
+      +(files.length>0 ? '<br><br><span style="color:#e8c547;">You selected '+files.length+' file(s). Please email them directly to the developer if needed, as file uploads are not supported in this form.</span>' : '')
+      +'</div>'
+      +'<button onclick="document.getElementById(\'contact-modal\').remove()" '
+      +'style="padding:10px 28px;border-radius:50px;border:none;background:rgba(168,255,120,.15);'
+      +'color:#a8ff78;cursor:pointer;font-weight:700;font-size:.9rem;">Close</button>'
+      +'</div>';
+  }, function(msg){
+    var btn2 = document.querySelector('#contact-modal button:last-child');
+    if(btn2){ btn2.disabled=false; btn2.textContent='Send Feedback →'; }
+    document.getElementById('con-err').textContent = msg;
+  });
+}
+
+// ── Also save code on successful unlock so contact form can include it
+var _origCheckLock = checkLock;
+checkLock = function(){
+  var val = document.getElementById('lock-input') ? document.getElementById('lock-input').value : '';
+  if(val === '202605PSY'){
+    sessionStorage.setItem('psy_code', val);
+    if(document.getElementById('lock-remember') && document.getElementById('lock-remember').checked){
+      localStorage.setItem('psy_code', val);
+    }
+  }
+  _origCheckLock();
+};
+</script>
+
 
 </body>
 </html>
