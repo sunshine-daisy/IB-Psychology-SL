@@ -570,10 +570,12 @@ header p{color:var(--text-muted);font-size:.83rem;letter-spacing:.04em}
 </style>
 </head>
 <body>
+<div id="lock-screen" style="position:fixed;inset:0;z-index:99999;background:#000;display:flex;align-items:center;justify-content:center;font-family:'DM Sans',sans-serif;"><div style="text-align:center;padding:40px 32px;max-width:360px;width:90%;"><div style="font-family:'Fraunces',serif;font-size:2.2rem;font-weight:900;background:linear-gradient(135deg,#7c6ff7,#38bdf8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:6px;">IB Psychology SL</div><div style="color:#8b89a0;font-size:.84rem;margin-bottom:6px;">2026 Study Tool</div><div style="color:#555;font-size:.72rem;letter-spacing:.08em;margin-bottom:32px;">v20260511a</div><input id="lock-input" type="password" placeholder="Enter access code" autocomplete="off" onkeydown="if(event.key==='Enter')checkLock()" style="width:100%;box-sizing:border-box;padding:13px 16px;border-radius:12px;border:1.5px solid rgba(255,255,255,.15);background:rgba(255,255,255,.06);color:#fffffe;font-family:'DM Sans',sans-serif;font-size:1rem;outline:none;text-align:center;letter-spacing:.2em;margin-bottom:12px;transition:border-color .2s;" onfocus="this.style.borderColor='#7c6ff7'" onblur="this.style.borderColor='rgba(255,255,255,.15)'"><button onclick="checkLock()" style="width:100%;padding:13px;border-radius:12px;border:none;background:linear-gradient(135deg,#7c6ff7,#38bdf8);color:#fff;font-family:'DM Sans',sans-serif;font-weight:700;font-size:1rem;cursor:pointer;">Unlock &rarr;</button><div id="lock-error" style="color:#ff6b6b;font-size:.83rem;margin-top:12px;min-height:18px;"></div></div></div>
 <div class="app">
 <header>
   <h1>IB Psychology SL</h1>
   <p>Review Tool · Topics 1, 2, 3, 4 &amp; 8 · 2026 Syllabus</p>
+  <p style="font-size:.72rem;color:var(--text-muted);margin-top:4px;letter-spacing:.08em;">v20260511a</p>
 </header>
 
 <div class="tab-row">
@@ -3885,6 +3887,149 @@ function mergeIntoStorage(storageKey, incoming) {
   localStorage.setItem(storageKey, JSON.stringify(existing));
   return count;
 }
+</script>
+
+
+<script>
+// ═══════════════════════════════════════════════════
+// PASSWORD LOCK
+// ═══════════════════════════════════════════════════
+(function(){
+  if(sessionStorage.getItem('psy_ok')==='1'){
+    document.getElementById('lock-screen').style.display='none';
+  } else {
+    window.addEventListener('load',function(){
+      var inp=document.getElementById('lock-input');
+      if(inp) inp.focus();
+    });
+  }
+})();
+
+function checkLock(){
+  var val=document.getElementById('lock-input').value;
+  if(val==='202605PSY'){
+    sessionStorage.setItem('psy_ok','1');
+    var ls=document.getElementById('lock-screen');
+    ls.style.transition='opacity .4s';
+    ls.style.opacity='0';
+    setTimeout(function(){ ls.style.display='none'; },420);
+  } else {
+    var err=document.getElementById('lock-error');
+    err.textContent='Incorrect code — try again';
+    document.getElementById('lock-input').value='';
+    document.getElementById('lock-input').focus();
+    setTimeout(function(){ err.textContent=''; },2500);
+  }
+}
+
+// ═══════════════════════════════════════════════════
+// GOOGLE SHEETS SCORE SYNC
+// Replace the URL below with your deployed Apps Script URL
+// ═══════════════════════════════════════════════════
+var APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw1vZaNcLt19fKQaVe2BxdDCGCzSxRZdS_Uyx1lhr4scKQY-Q4tpz33ajFxw6qjgEnwdQ/exec';
+var TOOL_VERSION    = 'v20260511a';
+var SHEET_WARN      = 8000;
+var SHEET_LIMIT     = 9500;
+var _sheetRows      = null;
+
+function syncSessionToSheet(tool, topicKey, correct, total){
+  if(!APPS_SCRIPT_URL || APPS_SCRIPT_URL.indexOf('REPLACE') !== -1) return;
+  if(_sheetRows !== null && _sheetRows >= SHEET_LIMIT){
+    showSheetFullError(_sheetRows); return;
+  }
+  fetch(APPS_SCRIPT_URL, {
+    method:'POST', mode:'no-cors',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({
+      action:'write', tool:tool, topic:topicKey,
+      correct:correct, total:total,
+      version:TOOL_VERSION, ts:new Date().toISOString()
+    })
+  }).then(function(){
+    if(_sheetRows!==null) _sheetRows++;
+    checkSheetCapacity();
+  }).catch(function(e){ console.warn('[Sheets]',e); });
+}
+
+function loadSheetRowCount(){
+  if(!APPS_SCRIPT_URL || APPS_SCRIPT_URL.indexOf('REPLACE') !== -1) return;
+  fetch(APPS_SCRIPT_URL+'?action=read')
+    .then(function(r){ return r.json(); })
+    .then(function(d){
+      if(d && d.rowCount !== undefined){
+        _sheetRows = d.rowCount;
+        checkSheetCapacity();
+      }
+    }).catch(function(e){ console.warn('[Sheets read]',e); });
+}
+
+function dismissBanner(id){ var el=document.getElementById(id); if(el) el.style.display="none"; }
+function checkSheetCapacity(){
+  if(_sheetRows===null) return;
+  if(_sheetRows >= SHEET_LIMIT) showSheetFullError(_sheetRows);
+  else if(_sheetRows >= SHEET_WARN) showSheetWarnBanner(_sheetRows);
+}
+
+function showSheetFullError(n){
+  if(document.getElementById('sheet-full-error')) return;
+  var d=document.createElement('div');
+  d.id='sheet-full-error';
+  d.style.cssText='position:fixed;bottom:0;left:0;right:0;z-index:9990;'+
+    'background:#1a0000;border-top:2px solid #ff6b6b;'+
+    'padding:16px 20px;font-family:"DM Sans",sans-serif;'+
+    'display:flex;align-items:flex-start;gap:14px;';
+  d.innerHTML=
+    '<span style="font-size:1.5rem;flex-shrink:0;">&#9888;</span>'+
+    '<div style="flex:1;">'+
+      '<div style="color:#ff6b6b;font-weight:700;font-size:.95rem;margin-bottom:4px;">'+
+        'Score storage is full ('+n+' rows)</div>'+
+      '<div style="color:#8b89a0;font-size:.83rem;line-height:1.6;">'+
+        'New scores cannot be saved right now. Your existing scores are safe. '+
+        'Please contact the tool administrator to clear space. '+
+        '<strong style="color:#fffffe;">The tool still works normally</strong> '+
+        '&#8212; only score saving is paused.</div>'+
+    '</div>'+
+    '<button data-id="sheet-full-error" onclick="dismissBanner(this.dataset.id)" style="background:none;border:none;color:#555;cursor:pointer;font-size:1.2rem;flex-shrink:0;padding:0 4px;">&#10005;</button>';
+  document.body.appendChild(d);
+}
+
+function showSheetWarnBanner(n){
+  if(document.getElementById('sheet-warn-banner')) return;
+  var d=document.createElement('div');
+  d.id='sheet-warn-banner';
+  d.style.cssText='position:fixed;bottom:0;left:0;right:0;z-index:9989;'+
+    'background:#1a1500;border-top:2px solid #e8c547;'+
+    'padding:12px 20px;font-family:"DM Sans",sans-serif;'+
+    'display:flex;align-items:center;gap:12px;';
+  d.innerHTML=
+    '<span style="font-size:1.2rem;">&#9888;</span>'+
+    '<div style="flex:1;color:#e8c547;font-size:.83rem;">'+
+      'Score storage is getting full ('+n+' of ~'+SHEET_LIMIT+' rows). '+
+      'Contact the administrator soon to avoid interruption.</div>'+
+    '<button data-id="sheet-warn-banner" onclick="dismissBanner(this.dataset.id)" style="background:none;border:none;color:#555;cursor:pointer;font-size:1.2rem;padding:0 4px;">&#10005;</button>';
+  document.body.appendChild(d);
+}
+
+// ── Hook into MAIN recordSession ──────────────────────────
+window.addEventListener('load', function(){
+  var orig = (typeof recordSession==='function') ? recordSession : null;
+  if(orig){
+    recordSession = function(topicKey, correct, total){
+      orig(topicKey, correct, total);
+      syncSessionToSheet('main', topicKey, correct, total);
+    };
+  }
+  // Hook into CT_saveSession
+  var origCT = window.CT_saveSession;
+  if(typeof origCT==='function'){
+    window.CT_saveSession = function(key, c, w){
+      origCT(key, c, w);
+      syncSessionToSheet('ct', key, c, c+w);
+    };
+  }
+  // Check sheet capacity on startup
+  loadSheetRowCount();
+});
 </script>
 
 </body>
