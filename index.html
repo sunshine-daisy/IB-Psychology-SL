@@ -4216,16 +4216,20 @@ function showAccessRequestModal(){
    +'<div style="margin-bottom:14px;">'+labelHtml('Reason for requesting access *')
    +'<textarea id="req-reason" placeholder="e.g. I am an IB Psychology teacher at..." rows="3" style="'+fieldStyle()+'resize:vertical;"></textarea></div>'
    +'<div style="margin-bottom:20px;">'+labelHtml('How did you hear about this tool? *')
-   +'<select id="req-source" onchange="toggleOtherSource(this.value)" style="'+fieldStyle()+'cursor:pointer;background:#1a1a1a;">'
-   +'<option value="">Select an option...</option>'
-   +'<option value="Student">I am a student using this tool</option>'
-   +'<option value="Teacher - ISI">Teacher at International School of Indiana</option>'
-   +'<option value="Teacher - Other">Teacher at another school</option>'
-   +'<option value="Parent">Parent of a student</option>'
-   +'<option value="Social Media">Social media</option>'
-   +'<option value="Friend/Colleague">Friend or colleague</option>'
-   +'<option value="Other">Other</option>'
-   +'</select>'
+   +'<input type="hidden" id="req-source" value="">'
+   +'<div id="req-source-dd" style="position:relative;">'
+   +'<div id="req-source-btn" onclick="toggleSourceDD()" style="width:100%;box-sizing:border-box;padding:10px 12px;border-radius:10px;border:1.5px solid rgba(255,255,255,.12);background:#1a1a1a;color:#8b89a0;font-size:.9rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;">'
+   +'<span id="req-source-lbl">Select an option...</span>'
+   +'<span style="font-size:.7rem;">&#9660;</span></div>'
+   +'<div id="req-source-list" style="display:none;position:absolute;top:100%;left:0;right:0;background:#1a1a1a;border:1.5px solid rgba(255,255,255,.2);border-radius:10px;z-index:9999;overflow:hidden;margin-top:4px;box-shadow:0 8px 24px rgba(0,0,0,.5);">'
+   +'<div onclick="pickSource(\'Student\')" style="padding:10px 14px;color:#fffffe;cursor:pointer;font-size:.9rem;" onmouseover="this.style.background=\'rgba(124,111,247,.2)\'" onmouseout="this.style.background=\'\'" >I am a student using this tool</div>'
+   +'<div onclick="pickSource(\'Teacher - ISI\')" style="padding:10px 14px;color:#fffffe;cursor:pointer;font-size:.9rem;" onmouseover="this.style.background=\'rgba(124,111,247,.2)\'" onmouseout="this.style.background=\'\'" >Teacher at International School of Indiana</div>'
+   +'<div onclick="pickSource(\'Teacher - Other\')" style="padding:10px 14px;color:#fffffe;cursor:pointer;font-size:.9rem;" onmouseover="this.style.background=\'rgba(124,111,247,.2)\'" onmouseout="this.style.background=\'\'" >Teacher at another school</div>'
+   +'<div onclick="pickSource(\'Parent\')" style="padding:10px 14px;color:#fffffe;cursor:pointer;font-size:.9rem;" onmouseover="this.style.background=\'rgba(124,111,247,.2)\'" onmouseout="this.style.background=\'\'" >Parent of a student</div>'
+   +'<div onclick="pickSource(\'Social Media\')" style="padding:10px 14px;color:#fffffe;cursor:pointer;font-size:.9rem;" onmouseover="this.style.background=\'rgba(124,111,247,.2)\'" onmouseout="this.style.background=\'\'" >Social media</div>'
+   +'<div onclick="pickSource(\'Friend/Colleague\')" style="padding:10px 14px;color:#fffffe;cursor:pointer;font-size:.9rem;" onmouseover="this.style.background=\'rgba(124,111,247,.2)\'" onmouseout="this.style.background=\'\'" >Friend or colleague</div>'
+   +'<div onclick="pickSource(\'Other\')" style="padding:10px 14px;color:#fffffe;cursor:pointer;font-size:.9rem;" onmouseover="this.style.background=\'rgba(124,111,247,.2)\'" onmouseout="this.style.background=\'\'" >Other</div>'
+   +'</div></div>'
    +'<div id="req-other-wrap" style="display:none;margin-top:10px;">'
    +inputHtml('req-other','text','Please describe how you heard about this tool...')
    +'</div></div>'
@@ -4240,6 +4244,39 @@ function showAccessRequestModal(){
   document.body.appendChild(overlay);
   setTimeout(function(){ var i=document.getElementById('req-first'); if(i) i.focus(); },100);
 }
+
+
+function toggleSourceDD(){
+  var list = document.getElementById('req-source-list');
+  if(list) list.style.display = list.style.display==='none' ? 'block' : 'none';
+}
+
+function pickSource(val){
+  var labels = {
+    'Student':        'I am a student using this tool',
+    'Teacher - ISI':  'Teacher at International School of Indiana',
+    'Teacher - Other':'Teacher at another school',
+    'Parent':         'Parent of a student',
+    'Social Media':   'Social media',
+    'Friend/Colleague':'Friend or colleague',
+    'Other':          'Other'
+  };
+  document.getElementById('req-source').value = val;
+  var lbl = document.getElementById('req-source-lbl');
+  if(lbl){ lbl.textContent = labels[val]||val; lbl.style.color='#fffffe'; }
+  var list = document.getElementById('req-source-list');
+  if(list) list.style.display = 'none';
+  toggleOtherSource(val);
+}
+
+// Close dropdown when clicking outside
+document.addEventListener('click', function(e){
+  var dd = document.getElementById('req-source-dd');
+  if(dd && !dd.contains(e.target)){
+    var list = document.getElementById('req-source-list');
+    if(list) list.style.display = 'none';
+  }
+});
 
 function toggleOtherSource(val){
   var w = document.getElementById('req-other-wrap');
@@ -4381,7 +4418,7 @@ function submitContact(){
   if(btn){ btn.disabled=true; btn.textContent='Sending...'; }
 
   // Get current access code from session/local storage (stored on successful unlock)
-  var accessCode = localStorage.getItem('psy_code') || sessionStorage.getItem('psy_code') || '(not captured)';
+  var accessCode = localStorage.getItem('psy_code') || sessionStorage.getItem('psy_code') || '(user not logged in - sent from lock screen)';
 
   apiPost({
     action:     'contact',
