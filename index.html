@@ -3896,7 +3896,30 @@ function mergeIntoStorage(storageKey, incoming) {
 // PASSWORD LOCK
 // ═══════════════════════════════════════════════════
 (function(){
-  if(localStorage.getItem('psy_ok')==='1' || sessionStorage.getItem('psy_ok')==='1'){
+  // Re-validate saved code with server on each load to catch deactivated codes
+  var saved = localStorage.getItem('psy_ok') || sessionStorage.getItem('psy_ok');
+  var savedCode = localStorage.getItem('psy_code') || sessionStorage.getItem('psy_code');
+
+  if(saved === '1' && savedCode && APPS_SCRIPT_URL && APPS_SCRIPT_URL.indexOf('REPLACE')===-1){
+    // Silently re-validate saved code
+    fetch(APPS_SCRIPT_URL + '?action=validate_code&code=' + encodeURIComponent(savedCode))
+      .then(function(r){ return r.json(); })
+      .then(function(d){
+        if(d.valid){
+          document.getElementById('lock-screen').style.display='none';
+        } else {
+          // Code deactivated — clear storage and show lock
+          localStorage.removeItem('psy_ok'); localStorage.removeItem('psy_code');
+          sessionStorage.removeItem('psy_ok'); sessionStorage.removeItem('psy_code');
+          document.getElementById('lock-error').textContent =
+            'Your access code has been deactivated. Please request a new one.';
+        }
+      })
+      .catch(function(){
+        // Server unreachable — trust the saved state
+        document.getElementById('lock-screen').style.display='none';
+      });
+  } else if(saved === '1'){
     document.getElementById('lock-screen').style.display='none';
   } else {
     window.addEventListener('load',function(){
@@ -3907,39 +3930,84 @@ function mergeIntoStorage(storageKey, incoming) {
 })();
 
 var _lockAttempts = 0;
+var _lockChecking = false;
+
 function checkLock(){
-  var val=document.getElementById('lock-input').value;
-  if(val==='202605PSY'){
-    _lockAttempts = 0;
-    var remember=document.getElementById('lock-remember');
-    if(remember && remember.checked){
-      localStorage.setItem('psy_ok','1');
-    } else {
-      sessionStorage.setItem('psy_ok','1');
-    }
-    var ls=document.getElementById('lock-screen');
-    ls.style.transition='opacity .4s';
-    ls.style.opacity='0';
-    setTimeout(function(){ ls.style.display='none'; },420);
+  if(_lockChecking) return;
+  var val = document.getElementById('lock-input').value.trim();
+  if(!val){
+    document.getElementById('lock-error').textContent = 'Please enter an access code.';
+    return;
+  }
+
+  // Show loading state
+  _lockChecking = true;
+  var btn = document.querySelector('#lock-screen button');
+  if(btn){ btn.disabled=true; btn.textContent='Checking...'; }
+  document.getElementById('lock-error').textContent = '';
+
+  // Validate against Google Sheet
+  if(APPS_SCRIPT_URL && APPS_SCRIPT_URL.indexOf('REPLACE')===-1){
+    fetch(APPS_SCRIPT_URL + '?action=validate_code&code=' + encodeURIComponent(val))
+      .then(function(r){ return r.json(); })
+      .then(function(d){
+        _lockChecking = false;
+        if(btn){ btn.disabled=false; btn.textContent='Unlock →'; }
+        if(d.valid){
+          _lockAttempts = 0;
+          // Store unlock state
+          var remember = document.getElementById('lock-remember');
+          if(remember && remember.checked){
+            localStorage.setItem('psy_ok','1');
+            localStorage.setItem('psy_code', val);
+            localStorage.setItem('psy_name', d.name||'');
+          } else {
+            sessionStorage.setItem('psy_ok','1');
+            sessionStorage.setItem('psy_code', val);
+            sessionStorage.setItem('psy_name', d.name||'');
+          }
+          var ls = document.getElementById('lock-screen');
+          ls.style.transition = 'opacity .4s';
+          ls.style.opacity = '0';
+          setTimeout(function(){ ls.style.display='none'; }, 420);
+        } else {
+          _lockAttempts++;
+          var err = document.getElementById('lock-error');
+          if(d.reason === 'Code has been deactivated'){
+            err.textContent = 'This code has been deactivated. Please request a new one.';
+          } else {
+            err.textContent = 'Incorrect code — try again.';
+          }
+          document.getElementById('lock-input').value='';
+          document.getElementById('lock-input').focus();
+          setTimeout(function(){ err.textContent=''; }, 3000);
+          if(_lockAttempts >= 3){
+            var hint = document.getElementById('lock-attempts-hint');
+            if(hint) hint.style.display='block';
+            // Alert admin
+            fetch(APPS_SCRIPT_URL, {
+              method:'POST', mode:'cors',
+              headers:{'Content-Type':'application/json'},
+              body:JSON.stringify({action:'wrong_code_alert', version:TOOL_VERSION, ts:new Date().toISOString()})
+            }).catch(function(){});
+          }
+        }
+      })
+      .catch(function(){
+        _lockChecking = false;
+        if(btn){ btn.disabled=false; btn.textContent='Unlock →'; }
+        // Fallback: if server unreachable, show friendly error
+        document.getElementById('lock-error').textContent = 'Could not reach the server. Check your connection and try again.';
+      });
   } else {
-    _lockAttempts++;
-    var err=document.getElementById('lock-error');
-    err.textContent='Incorrect code — try again';
-    document.getElementById('lock-input').value='';
-    document.getElementById('lock-input').focus();
-    setTimeout(function(){ err.textContent=''; },2500);
-    if(_lockAttempts >= 3){
-      var hint = document.getElementById('lock-attempts-hint');
-      if(hint) hint.style.display='block';
-      // Notify admin server-side
-      if(APPS_SCRIPT_URL && APPS_SCRIPT_URL.indexOf('REPLACE')===-1){
-        fetch(APPS_SCRIPT_URL, {
-          method:'POST', mode:'cors',
-          headers:{'Content-Type':'application/json'},
-          body: JSON.stringify({action:'wrong_code_alert', version:TOOL_VERSION, ts:new Date().toISOString()})
-        }).catch(function(){});
-      }
-    }
+    // No Apps Script URL set — dev mode, accept any non-empty code
+    _lockChecking = false;
+    if(btn){ btn.disabled=false; btn.textContent='Unlock →'; }
+    sessionStorage.setItem('psy_ok','1');
+    sessionStorage.setItem('psy_code', val);
+    var ls = document.getElementById('lock-screen');
+    ls.style.transition='opacity .4s'; ls.style.opacity='0';
+    setTimeout(function(){ ls.style.display='none'; },420);
   }
 }
 
@@ -4342,18 +4410,7 @@ function submitContact(){
   });
 }
 
-// ── Also save code on successful unlock so contact form can include it
-var _origCheckLock = checkLock;
-checkLock = function(){
-  var val = document.getElementById('lock-input') ? document.getElementById('lock-input').value : '';
-  if(val === '202605PSY'){
-    sessionStorage.setItem('psy_code', val);
-    if(document.getElementById('lock-remember') && document.getElementById('lock-remember').checked){
-      localStorage.setItem('psy_code', val);
-    }
-  }
-  _origCheckLock();
-};
+// Code storage now handled directly in checkLock()
 </script>
 
 
