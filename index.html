@@ -3902,21 +3902,16 @@ function mergeIntoStorage(storageKey, incoming) {
 
   if(saved === '1' && savedCode && APPS_SCRIPT_URL && APPS_SCRIPT_URL.indexOf('REPLACE')===-1){
     // Silently re-validate saved code
-    fetch(APPS_SCRIPT_URL + '?action=validate_code&code=' + encodeURIComponent(savedCode))
-      .then(function(r){ return r.json(); })
-      .then(function(d){
+    jsonpRequest({action:'validate_code', code:savedCode}, function(d){
         if(d.valid){
           document.getElementById('lock-screen').style.display='none';
         } else {
-          // Code deactivated — clear storage and show lock
           localStorage.removeItem('psy_ok'); localStorage.removeItem('psy_code');
           sessionStorage.removeItem('psy_ok'); sessionStorage.removeItem('psy_code');
           document.getElementById('lock-error').textContent =
             'Your access code has been deactivated. Please request a new one.';
         }
-      })
-      .catch(function(){
-        // Server unreachable — trust the saved state
+      }, function(){
         document.getElementById('lock-screen').style.display='none';
       });
   } else if(saved === '1'){
@@ -3948,9 +3943,7 @@ function checkLock(){
 
   // Validate against Google Sheet
   if(APPS_SCRIPT_URL && APPS_SCRIPT_URL.indexOf('REPLACE')===-1){
-    fetch(APPS_SCRIPT_URL + '?action=validate_code&code=' + encodeURIComponent(val))
-      .then(function(r){ return r.json(); })
-      .then(function(d){
+    jsonpRequest({action:'validate_code', code:val}, function(d){
         _lockChecking = false;
         if(btn){ btn.disabled=false; btn.textContent='Unlock →'; }
         if(d.valid){
@@ -4042,14 +4035,12 @@ function syncSessionToSheet(tool, topicKey, correct, total){
 
 function loadSheetRowCount(){
   if(!APPS_SCRIPT_URL || APPS_SCRIPT_URL.indexOf('REPLACE') !== -1) return;
-  fetch(APPS_SCRIPT_URL+'?action=read', {mode:'cors'})
-    .then(function(r){ return r.json(); })
-    .then(function(d){
-      if(d && d.rowCount !== undefined){
-        _sheetRows = d.rowCount;
-        checkSheetCapacity();
-      }
-    }).catch(function(e){ console.warn('[Sheets read]',e); });
+  jsonpRequest({action:'read'}, function(d){
+    if(d && d.rowCount !== undefined){
+      _sheetRows = d.rowCount;
+      checkSheetCapacity();
+    }
+  }, function(e){ console.warn('[Sheets read]',e); });
 }
 
 function dismissBanner(id){ var el=document.getElementById(id); if(el) el.style.display="none"; }
@@ -4128,20 +4119,46 @@ window.addEventListener('load', function(){
 // ═══════════════════════════════════════════════════════════════
 function isValidEmail(e){ return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e.trim()); }
 
+function jsonpRequest(params, onSuccess, onError){
+  var cbName = 'cb_'+Math.random().toString(36).slice(2);
+  var timeout = setTimeout(function(){
+    delete window[cbName];
+    var s = document.getElementById(cbName);
+    if(s) s.remove();
+    if(onError) onError('Could not reach the server. Please check your connection and try again.');
+  }, 10000);
+
+  window[cbName] = function(data){
+    clearTimeout(timeout);
+    delete window[cbName];
+    var s = document.getElementById(cbName);
+    if(s) s.remove();
+    if(onSuccess) onSuccess(data);
+  };
+
+  var qs = Object.keys(params).map(function(k){
+    return encodeURIComponent(k)+'='+encodeURIComponent(
+      typeof params[k]==='object' ? JSON.stringify(params[k]) : params[k]
+    );
+  }).join('&');
+
+  var script = document.createElement('script');
+  script.id = cbName;
+  script.src = APPS_SCRIPT_URL+'?callback='+cbName+'&'+qs;
+  script.onerror = function(){
+    clearTimeout(timeout);
+    delete window[cbName];
+    script.remove();
+    if(onError) onError('Could not reach the server. Please check your connection.');
+  };
+  document.head.appendChild(script);
+}
+
 function apiPost(payload, onSuccess, onError){
-  // Apps Script requires no-cors for POST from external origins
-  // We cannot read the response in no-cors mode, so we assume success
-  fetch(APPS_SCRIPT_URL, {
-    method:'POST',
-    mode:'no-cors',
-    headers:{'Content-Type':'text/plain'},
-    body: JSON.stringify(payload)
-  })
-  .then(function(){
-    // no-cors returns opaque response - assume success
-    onSuccess({status:'ok'});
-  })
-  .catch(function(){ onError('Could not reach the server. Please check your connection.'); });
+  jsonpRequest(payload, function(d){
+    if(d && d.status==='ok') onSuccess(d);
+    else onError((d && d.message) || 'Server error. Please try again.');
+  }, onError);
 }
 
 function modalOverlay(id){
