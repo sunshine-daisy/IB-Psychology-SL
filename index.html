@@ -4166,7 +4166,7 @@ function fieldStyle(){
 }
 
 function labelHtml(text){
-  return '<label style="font-size:.8rem;color:#8b89a0;display:block;margin-bottom:5px;">'+text+'</label>';
+  return '<label style="font-size:.76rem;color:#8b89a0;display:block;margin-bottom:4px;">'+text+'</label>';
 }
 
 function inputHtml(id, type, placeholder){
@@ -4205,9 +4205,9 @@ function showAccessRequestModal(){
   var box     = modalBox();
 
   box.innerHTML =
-    '<div style="font-family:\'Fraunces\',serif;font-size:1.2rem;font-weight:700;color:#fffffe;margin-bottom:4px;">Request Access Code</div>'
-   +'<div style="font-size:.83rem;color:#8b89a0;margin-bottom:20px;line-height:1.5;">Fill in all fields. Your request will be reviewed and the code sent to your email.</div>'
-   +'<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px;">'
+    '<div style="font-family:\'Fraunces\',serif;font-size:1.05rem;font-weight:700;color:#fffffe;margin-bottom:4px;">Request Access Code</div>'
+   +'<div style="font-size:.78rem;color:#8b89a0;margin-bottom:14px;line-height:1.4;">Fill in all fields. Your request will be reviewed and the code sent to your email.</div>'
+   +'<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px;">'
    +  '<div>'+labelHtml('First Name *')+inputHtml('req-first','text','First name')+'</div>'
    +  '<div>'+labelHtml('Last Name *')+inputHtml('req-last','text','Last name')+'</div>'
    +'</div>'
@@ -4222,13 +4222,13 @@ function showAccessRequestModal(){
    +'<span id="req-source-lbl">Select an option...</span>'
    +'<span style="font-size:.7rem;">&#9660;</span></div>'
    +'<div id="req-source-list" style="display:none;position:relative;background:#1a1a1a;border:1.5px solid rgba(255,255,255,.2);border-radius:10px;margin-top:4px;box-shadow:0 4px 16px rgba(0,0,0,.5);">'
-   +'<div onclick="pickSource(\'Student\')" style="padding:7px 12px;color:#fffffe;cursor:pointer;font-size:.82rem;border-bottom:1px solid rgba(255,255,255,.05);line-height:1.3;" onmouseover="this.style.background=\'rgba(124,111,247,.2)\'" onmouseout="this.style.background=\'\'" >I am a student using this tool</div>'
-   +'<div onclick="pickSource(\'Teacher - ISI\')" style="padding:7px 12px;color:#fffffe;cursor:pointer;font-size:.82rem;border-bottom:1px solid rgba(255,255,255,.05);line-height:1.3;" onmouseover="this.style.background=\'rgba(124,111,247,.2)\'" onmouseout="this.style.background=\'\'" >Teacher at International School of Indiana</div>'
-   +'<div onclick="pickSource(\'Teacher - Other\')" style="padding:7px 12px;color:#fffffe;cursor:pointer;font-size:.82rem;border-bottom:1px solid rgba(255,255,255,.05);line-height:1.3;" onmouseover="this.style.background=\'rgba(124,111,247,.2)\'" onmouseout="this.style.background=\'\'" >Teacher at another school</div>'
-   +'<div onclick="pickSource(\'Parent\')" style="padding:7px 12px;color:#fffffe;cursor:pointer;font-size:.82rem;border-bottom:1px solid rgba(255,255,255,.05);line-height:1.3;" onmouseover="this.style.background=\'rgba(124,111,247,.2)\'" onmouseout="this.style.background=\'\'" >Parent of a student</div>'
-   +'<div onclick="pickSource(\'Social Media\')" style="padding:7px 12px;color:#fffffe;cursor:pointer;font-size:.82rem;border-bottom:1px solid rgba(255,255,255,.05);line-height:1.3;" onmouseover="this.style.background=\'rgba(124,111,247,.2)\'" onmouseout="this.style.background=\'\'" >Social media</div>'
-   +'<div onclick="pickSource(\'Friend/Colleague\')" style="padding:7px 12px;color:#fffffe;cursor:pointer;font-size:.82rem;border-bottom:1px solid rgba(255,255,255,.05);line-height:1.3;" onmouseover="this.style.background=\'rgba(124,111,247,.2)\'" onmouseout="this.style.background=\'\'" >Friend or colleague</div>'
-   +'<div onclick="pickSource(\'Other\')" style="padding:7px 12px;color:#fffffe;cursor:pointer;font-size:.82rem;border-bottom:1px solid rgba(255,255,255,.05);line-height:1.3;" onmouseover="this.style.background=\'rgba(124,111,247,.2)\'" onmouseout="this.style.background=\'\'" >Other</div>'
+   +'<div onclick="pickSource(\'Student\')" style="padding:5px 12px;color:#fffffe;cursor:pointer;font-size:.80rem;border-bottom:1px solid rgba(255,255,255,.05);line-height:1.3;" onmouseover="this.style.background=\'rgba(124,111,247,.2)\'" onmouseout="this.style.background=\'\'" >I am a student using this tool</div>'
+   +'<div onclick="pickSource(\'Teacher - ISI\')" style="padding:5px 12px;color:#fffffe;cursor:pointer;font-size:.80rem;border-bottom:1px solid rgba(255,255,255,.05);line-height:1.3;" onmouseover="this.style.background=\'rgba(124,111,247,.2)\'" onmouseout="this.style.background=\'\'" >Teacher at International School of Indiana</div>'
+   +'<div onclick="pickSource(\'Teacher - Other\')" style="padding:5px 12px;color:#fffffe;cursor:pointer;font-size:.80rem;border-bottom:1px solid rgba(255,255,255,.05);line-height:1.3;" onmouseover="this.style.background=\'rgba(124,111,247,.2)\'" onmouseout="this.style.background=\'\'" >Teacher at another school</div>'
+   +'<div onclick="pickSource(\'Parent\')" style="padding:5px 12px;color:#fffffe;cursor:pointer;font-size:.80rem;border-bottom:1px solid rgba(255,255,255,.05);line-height:1.3;" onmouseover="this.style.background=\'rgba(124,111,247,.2)\'" onmouseout="this.style.background=\'\'" >Parent of a student</div>'
+   +'<div onclick="pickSource(\'Social Media\')" style="padding:5px 12px;color:#fffffe;cursor:pointer;font-size:.80rem;border-bottom:1px solid rgba(255,255,255,.05);line-height:1.3;" onmouseover="this.style.background=\'rgba(124,111,247,.2)\'" onmouseout="this.style.background=\'\'" >Social media</div>'
+   +'<div onclick="pickSource(\'Friend/Colleague\')" style="padding:5px 12px;color:#fffffe;cursor:pointer;font-size:.80rem;border-bottom:1px solid rgba(255,255,255,.05);line-height:1.3;" onmouseover="this.style.background=\'rgba(124,111,247,.2)\'" onmouseout="this.style.background=\'\'" >Friend or colleague</div>'
+   +'<div onclick="pickSource(\'Other\')" style="padding:5px 12px;color:#fffffe;cursor:pointer;font-size:.80rem;border-bottom:1px solid rgba(255,255,255,.05);line-height:1.3;" onmouseover="this.style.background=\'rgba(124,111,247,.2)\'" onmouseout="this.style.background=\'\'" >Other</div>'
    +'</div></div>'
    +'<div id="req-other-wrap" style="display:none;margin-top:10px;">'
    +inputHtml('req-other','text','Please describe how you heard about this tool...')
@@ -4347,7 +4347,7 @@ function showContactModal(){
   box.innerHTML =
     '<div style="font-family:\'Fraunces\',serif;font-size:1.2rem;font-weight:700;color:#fffffe;margin-bottom:4px;">Contact Developer</div>'
    +'<div style="font-size:.83rem;color:#8b89a0;margin-bottom:20px;line-height:1.5;">Report an issue, send feedback, or ask a question. You can attach up to 5 files.</div>'
-   +'<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px;">'
+   +'<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px;">'
    +  '<div>'+labelHtml('First Name *')+inputHtml('con-first','text','First name')+'</div>'
    +  '<div>'+labelHtml('Last Name *')+inputHtml('con-last','text','Last name')+'</div>'
    +'</div>'
